@@ -32,6 +32,11 @@ export default function Home() {
     document.getElementById("bottom").scrollIntoView();
   }, [cmdHistory]);
 
+  useEffect(() => {
+    const result = { cmd: "welcome", result: Pallet("welcome") };
+    setCmdHistory((cmdHistory) => [result]);
+  }, []);
+
   return (
     <main className="flex flex-col p-3 bg-background h-full">
       {cmdHistory.map((c, index) => (

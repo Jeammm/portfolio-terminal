@@ -1,7 +1,7 @@
 const Welcome = () => {
   return (
-    <div>
-      <div>
+    <div className="flex flex-col lg:flex-row items-start lg:items-center">
+      <div className="order-1 lg:order-2 min-w-fit">
         <p>　　　　　　　　　　　　　　 ,.;'''`':;</p>
         <p>　　　　　　　　　　　　　　;:　 　 :;</p>
         <p>　　　　 　 　💖　 ,,...,,_　 ,;:　 　　_,,,,_</p>
@@ -20,7 +20,7 @@ const Welcome = () => {
         <p>　　　　　　;`　``;.,:: 　　;　　　　 ;;</p>
         <p>　　　　　　``~~`　　``~~```''''~~~'</p>
       </div>
-      <div>
+      <div className="order-2 lg:order-1">
         <div className="art_text">
           <p>
             &nbsp;______&nbsp;&nbsp;__&nbsp;&nbsp;&nbsp;&nbsp;__&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
