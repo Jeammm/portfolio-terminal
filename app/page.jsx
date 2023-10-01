@@ -23,10 +23,9 @@ export default function Home() {
       return;
     }
 
-    const result = { cmd, result: Pallet(cmd) };
-
-    setCmdHistory((cmdHistory) => [...cmdHistory, result]);
     setCmd("");
+    const result = { cmd, result: Pallet(cmd) };
+    setCmdHistory((cmdHistory) => [...cmdHistory, result]);
   };
 
   useEffect(() => {
@@ -35,8 +34,10 @@ export default function Home() {
 
   return (
     <main className="flex flex-col p-3 bg-background h-full">
-      {cmdHistory.map((c) => (
-        <HistoryPrefix cmd={c.cmd}>{c.result}</HistoryPrefix>
+      {cmdHistory.map((c, index) => (
+        <HistoryPrefix cmd={c.cmd} key={`command-no-${index}`}>
+          {c.result}
+        </HistoryPrefix>
       ))}
       <form className="current_cmd " onSubmit={handleSubmit}>
         <Prefix>

@@ -25,3 +25,12 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+.art_text {
+  @apply leading-4 my-3;
+}
+
+.welcome_text {
+  @apply my-4;
+}
+
+
