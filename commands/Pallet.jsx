@@ -52,8 +52,8 @@ const welcome = () => {
 const about = () => {
   return (
     <div>
-      <p>Hi, my name is Aticha</p>
-      <p>I'm a Junior Student atKasetsart University.</p>
+      <p>Hi, my name is Athicha</p>
+      <p>I'm a Junior Student at Kasetsart University.</p>
       <p>And I love cats.</p>
     </div>
   );
@@ -77,7 +77,19 @@ const help = () => {
   );
 };
 
-const cmdPallet = {
+const pwd = () => {
+  return <p>/home/athicha</p>;
+};
+
+const echo = (argument) => {
+  return <p>{argument.join(" ")}</p>;
+};
+
+const whoami = () => {
+  return <p>visitor</p>
+}
+
+export const cmdPallet = {
   ls: { func: ls, desc: "- see all directory" },
   welcome: { func: welcome, desc: "- show welcome text" },
   about: { func: about, desc: "- see detail about Athicha" },
@@ -85,6 +97,9 @@ const cmdPallet = {
   help: { func: help, desc: "- see all available commands" },
   cd: { func: cd, desc: "- navigate to a directory" },
   clear: { desc: "- clear command history" },
+  pwd: { func: pwd, desc: "- shows the current working directory's path." },
+  echo: { func: echo, desc: "- prints a message as a standard output." },
+  whoami: { func: whoami, desc: "- Who is the current user." },
 };
 
 const pallet = (str) => {
@@ -92,7 +107,7 @@ const pallet = (str) => {
   const cmdList = Object.keys(cmdPallet);
 
   if (cmdList.includes(command)) {
-    const func = cmdPallet[command].func;
+    const { func } = cmdPallet[command];
     return func(argument);
   }
 

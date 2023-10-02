@@ -25,6 +25,9 @@ module.exports = {
         background: "rgb(37,35,52)",
         art: "rgb()",
       },
+      lineHeight: {
+        'mid-loose': '1.25',
+      }
     },
   },
   plugins: [],

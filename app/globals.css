@@ -26,11 +26,15 @@ body {
 }
 
 .art_text {
-  @apply leading-4 my-3;
+  @apply my-3 text-xs md:text-base leading-3 md:leading-4;
+}
+
+.bunny {
+  @apply leading-mid-loose md:leading-5;
 }
 
 .welcome_text {
-  @apply my-4;
+  @apply my-4 leading-mid-loose;
 }
 
 
