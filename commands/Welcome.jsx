@@ -1,10 +1,14 @@
+import FiberComponent from "@/components/FiberComponent";
+
 const Welcome = () => {
+  
   return (
     <div className="flex flex-col lg:flex-row items-start lg:items-center">
       <div className="order-1 lg:order-2 mt-5 mg:mt-0 min-w-fit bunny">
+        <FiberComponent />
         <p>　　　　　　　　　　　 ,.;'''`':;</p>
         <p>　　　　　　　　　　　;:　 　 :;</p>
-        <p>　 　 　💖　 ,,...,,_　 ,;:　 　　_,,,,_</p>
+        <p>　 　 　　 ,,...,,_　 ,;:　 　　_,,,,_</p>
         <p>　 　 .,.~т' 　︵　　 ''';~＊.~'''　''`'';</p>
         <p>　 　;:　人　　　　　　　　　,,.　　　　.~`</p>
         <p>　　;.　　　　　　　　　　:;``_.,,,~``'</p>
