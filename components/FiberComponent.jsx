@@ -30,7 +30,7 @@ function Box(props) {
       onPointerOut={(event) => setHover(false)}
     >
       <boxGeometry args={[1, 1, 1]} />
-      <meshStandardMaterial color={hovered ? "hotpink" : "lime"} />
+      <meshStandardMaterial color={hovered ? "red" : "lime"} />
     </mesh>
   );
 }
@@ -39,8 +39,8 @@ export default function FiberComponent() {
   return (
     <div className="absolute">
       <Canvas >
-        <ambientLight />
-        <pointLight position={[-4, 2, 2]} />
+        {/* <ambientLight /> */}
+        <pointLight position={[-3.4, 1.5, 1]} />
         <Box position={[-4.5, 2, 0]} />
       </Canvas>
     </div>
