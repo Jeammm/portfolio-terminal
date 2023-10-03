@@ -1,67 +1,14 @@
 import React from "react";
+
+import ls from "./functions/func_ls";
+import cd from "./functions/func_cd";
 import Welcome from "./Welcome";
-
-const folders = [
-  "Applications",
-  "Library",
-  "Postman",
-  "Desktop",
-  "Movies",
-  "Public",
-  "Documents",
-  "Music",
-  "VirtualBox VMs",
-  "Downloads",
-  "palindrome.txt",
-  "AR Project",
-  "Pictures",
-];
-
-const ls = (argument) => {
-  if (argument.length) {
-    if (!folders.includes(argument[0])) {
-      return <p>ls: {argument.join(" ")}: No such file or directory</p>;
-    }
-    return <p>ls: {argument.join(" ")}: Access denied</p>;
-  }
-  return (
-    <div className="flex flex-wrap gap-x-4">
-      {folders.map((f, index) => (
-        <div key={`dir-no-${index}`}>
-          <p>{f}</p>
-        </div>
-      ))}
-    </div>
-  );
-};
-
-const cd = (argument) => {
-  if (argument.length) {
-    if (!folders.includes(argument[0])) {
-      return <p>cd: {argument.join(" ")}: No such file or directory</p>;
-    }
-    return <p>cd: {argument.join(" ")}: Access denied</p>;
-  }
-  return;
-};
-
-const welcome = () => {
-  return <Welcome />;
-};
-
-const about = () => {
-  return (
-    <div>
-      <p>Hi, my name is Athicha</p>
-      <p>I'm a Junior Student at Kasetsart University.</p>
-      <p>And I love cats.</p>
-    </div>
-  );
-};
-
-const email = () => {
-  return <p>athicha.phjkl@gmail.com</p>;
-};
+import about from "./functions/func_about";
+import email from "./functions/func_email";
+import whoami from "./functions/func_whoami";
+import echo from "./functions/func_echo";
+import pwd from "./functions/func_pwd";
+import projects from "./functions/func_projects"
 
 const help = () => {
   const cmdList = Object.keys(cmdPallet);
@@ -77,21 +24,9 @@ const help = () => {
   );
 };
 
-const pwd = () => {
-  return <p>/home/athicha</p>;
-};
-
-const echo = (argument) => {
-  return <p>{argument.join(" ")}</p>;
-};
-
-const whoami = () => {
-  return <p>visitor</p>
-}
-
 export const cmdPallet = {
   ls: { func: ls, desc: "- see all directory" },
-  welcome: { func: welcome, desc: "- show welcome text" },
+  welcome: { func: Welcome, desc: "- show welcome text" },
   about: { func: about, desc: "- see detail about Athicha" },
   email: { func: email, desc: "- Athicha's email" },
   help: { func: help, desc: "- see all available commands" },
@@ -100,6 +35,7 @@ export const cmdPallet = {
   pwd: { func: pwd, desc: "- shows the current working directory's path." },
   echo: { func: echo, desc: "- prints a message as a standard output." },
   whoami: { func: whoami, desc: "- Who is the current user." },
+  projects: {func: projects, desc: "- Showcase of my past projects"}
 };
 
 const pallet = (str) => {
