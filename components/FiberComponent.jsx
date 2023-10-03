@@ -4,9 +4,9 @@ import { Canvas, useFrame } from "@react-three/fiber";
 function Box(props) {
   const meshRef = useRef();
   const [hovered, setHover] = useState(false);
-  const [r, setR] = useState(50);
-  const [g, setG] = useState(50);
-  const [b, setB] = useState(50);
+  const [r, setR] = useState(1);
+  const [g, setG] = useState(125);
+  const [b, setB] = useState(200);
 
   useFrame((state, delta) => {
     meshRef.current.rotation.x += delta;

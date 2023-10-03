@@ -58,9 +58,9 @@ const Welcome = () => {
           <p>----------</p>
           <p>
             This project's source code can be found in this project's{" "}
-            <span className="cursor-pointer text-orange underline">
+            <a href="https://github.com/Jeammm/portfolio-terminal" className="cursor-pointer text-orange underline">
               GitHub repo
-            </span>
+            </a>
             .
           </p>
         </div>
