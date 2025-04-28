@@ -14,6 +14,7 @@ import macbookBg from "@/public/macbook-bg.jpg";
 import terminalIcon from "@/public/terminal-icon.png";
 import trashIcon from "@/public/trash-icon.png";
 import dockerIcon from "@/public/docker-icon.png";
+import photoboothIcon from "@/public/photobooth-icon.png";
 
 import me from "@/public/me.jpg";
 import cat from "@/public/cat.jpg";
@@ -22,11 +23,13 @@ const inter = Inter({ subsets: ["latin"] });
 
 const DESKTOP_ICON = [
   { name: "Terminal", icon: terminalIcon, path: "terminal" },
+  { name: "Photo Booth", icon: photoboothIcon, path: "photobooth" },
 ];
 
 const DOCK_ICON = [
   { name: "Terminal", icon: terminalIcon, path: "terminal" },
   { name: "Docker", icon: dockerIcon, path: "docker" },
+  { name: "Photo Booth", icon: photoboothIcon, path: "photobooth" },
   { name: "Separator", icon: "", path: "" },
   { name: "Trash", icon: trashIcon, path: "trash" },
 ];
@@ -114,13 +117,14 @@ export default function RootLayout({ children }) {
                       ? "border bg-black/40 rounded-md border-[#efefef]/70"
                       : "border border-transparent"
                   }`}
+                  alt={item.name}
                 />
                 <p
                   className={`mt-1 font-semibold text-sm text-white text- ${
                     activeItem === item.path ? "bg-[#2556CA] rounded-md" : ""
                   }`}
                 >
-                  Terminal
+                  {item.name}
                 </p>
               </button>
             ))}
@@ -148,6 +152,7 @@ export default function RootLayout({ children }) {
                 <Image
                   src={item.icon}
                   className={`w-[65px] h-[65px] object-contain`}
+                  alt={item.name}
                 />
               </button>
             );

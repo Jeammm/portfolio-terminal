@@ -9,7 +9,11 @@ const notFound = () => {
   return (
     <Window w="w-[310px]" h="h-[350px]" className="mt-[60%]" hideTitle>
       <div className="flex flex-col items-center justify-center text-center p-6">
-        <Image src={warningIcon} className="w-[100px] h-[100px]" />
+        <Image
+          src={warningIcon}
+          className="w-[100px] h-[100px]"
+          alt="warning"
+        />
         <h1 className="text-lg font-semibold mb-4">Access Denied</h1>
         <p className="text-sm text-gray-600 mb-2">
           You don’t have permission to view this page.
