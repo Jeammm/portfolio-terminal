@@ -16,8 +16,8 @@ import trashIcon from "@/public/trash-icon.png";
 import dockerIcon from "@/public/docker-icon.png";
 import photoboothIcon from "@/public/photobooth-icon.png";
 
-import me from "@/public/me.jpg";
-import cat from "@/public/cat.jpg";
+import me from "@/public/ME.JPG";
+import cat from "@/public/cat.JPG";
 
 const inter = Inter({ subsets: ["latin"] });
 

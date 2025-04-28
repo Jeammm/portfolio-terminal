@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Window from "../../components/wrapper/window";
-import cat from "@/public/cat.jpg";
+import cat from "@/public/cat.JPG";
 
 const page = () => {
   const videoRef = useRef(null);
