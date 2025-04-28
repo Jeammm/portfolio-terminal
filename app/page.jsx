@@ -106,7 +106,7 @@ export default function Home() {
           <input
             value={cmd}
             onChange={(e) => setCmd(e.target.value)}
-            className="bg-transparent text-white outline-none w-full font-mono caret-green"
+            className="pb-2 bg-transparent text-white outline-none w-full font-mono caret-green"
             autoFocus
             onBlur={({ target }) => target.focus()}
             onKeyDown={shortcutHandler}

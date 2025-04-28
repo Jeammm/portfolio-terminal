@@ -1,9 +1,8 @@
 import FiberComponent from "@/components/FiberComponent";
 
 const Welcome = () => {
-  
   return (
-    <div className="flex flex-col lg:flex-row items-start lg:items-center">
+    <div className="relative flex flex-col lg:flex-row items-start lg:items-center">
       <div className="order-1 lg:order-2 mt-5 mg:mt-0 min-w-fit bunny">
         <FiberComponent />
         <p>　　　　　　　　　　　 ,.;'''`':;</p>
@@ -58,7 +57,10 @@ const Welcome = () => {
           <p>----------</p>
           <p>
             This project's source code can be found in this project's{" "}
-            <a href="https://github.com/Jeammm/portfolio-terminal" className="cursor-pointer text-orange underline">
+            <a
+              href="https://github.com/Jeammm/portfolio-terminal"
+              className="cursor-pointer text-orange underline"
+            >
               GitHub repo
             </a>
             .
