@@ -14,7 +14,7 @@ export default function Window({ children }) {
         damping: 15,
         mass: 0.5,
       }}
-      className="grid grid-rows-[auto_1fr] bg-background h-[90vh] overflow-hidden w-[90vw] rounded-xl border border-[#787878]"
+      className="grid grid-rows-[auto_1fr] bg-background h-[85vh] overflow-hidden w-[90vw] rounded-xl border border-[#787878]"
     >
       <div className="w-full bg-[#231B2E] h-[30px] flex items-center px-2 relative">
         <div className="group flex gap-2">

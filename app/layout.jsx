@@ -40,7 +40,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${inter.className}`}>
       <body
-        className="grid grid-rows-[1fr_auto] place-items-center h-screen bg-black overflow-hidden"
+        className="grid grid-rows-[1fr_auto] justify-items-center h-screen bg-black overflow-hidden"
         style={{
           backgroundImage: `url(${macbookBg.src})`,
           backgroundSize: "cover",
@@ -86,7 +86,7 @@ export default function RootLayout({ children }) {
             </button>
           ))}
         </div>
-        <div className="fixed">{children}</div>
+        <div className="fixed top-10">{children}</div>
       </body>
     </html>
   );
