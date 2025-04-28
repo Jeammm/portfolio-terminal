@@ -10,6 +10,8 @@ import WeatherWidget from "@/components/widget/weatherWidget";
 
 import macbookBg from "@/public/macbook-bg.jpg";
 import terminalIcon from "@/public/terminal-icon.png";
+import trashIcon from "@/public/trash-icon.png";
+import dockerIcon from "@/public/docker-icon.png";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,7 +19,12 @@ const DESKTOP_ICON = [
   { name: "Terminal", icon: terminalIcon, path: "terminal" },
 ];
 
-const DOCK_ICON = [{ name: "Terminal", icon: terminalIcon, path: "terminal" }];
+const DOCK_ICON = [
+  { name: "Terminal", icon: terminalIcon, path: "terminal" },
+  { name: "Docker", icon: dockerIcon, path: "docker" },
+  { name: "Separator", icon: "", path: "" },
+  { name: "Trash", icon: trashIcon, path: "trash" },
+];
 
 export default function RootLayout({ children }) {
   const router = useRouter();
@@ -82,19 +89,32 @@ export default function RootLayout({ children }) {
             ))}
           </div>
         </div>
-        <div className="bg-white/10 backdrop-blur-xl rounded-2xl mb-2 pt-1 px-1 border border-[#efefef]/30">
-          {DOCK_ICON.map((item) => (
-            <button
-              key={`item-${item.name}-dock`}
-              onClick={(event) => {
-                event.stopPropagation();
-                router.push(item.path);
-              }}
-              className="hover:scale-110 transition-all hover:-translate-y-2"
-            >
-              <Image src={item.icon} className={`w-[65px] h-[65px] `} />
-            </button>
-          ))}
+        <div className="bg-white/10 backdrop-blur-xl rounded-3xl mb-2 p-1 border border-[#efefef]/30 flex justify-center items-center">
+          {DOCK_ICON.map((item) => {
+            if (item.name === "Separator") {
+              return (
+                <button
+                  key={`item-${item.name}-dock`}
+                  className="mx-4 w-[1px] h-[50px] bg-white/20"
+                />
+              );
+            }
+            return (
+              <button
+                key={`item-${item.name}-dock`}
+                onClick={(event) => {
+                  event.stopPropagation();
+                  router.push(item.path);
+                }}
+                className="hover:scale-110 transition-all hover:-translate-y-2"
+              >
+                <Image
+                  src={item.icon}
+                  className={`w-[65px] h-[65px] object-contain`}
+                />
+              </button>
+            );
+          })}
         </div>
         <div className="fixed top-10">{children}</div>
       </body>
