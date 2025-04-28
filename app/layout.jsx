@@ -6,6 +6,8 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import Image from "next/image";
 
+import WeatherWidget from "@/components/widget/weatherWidget";
+
 import macbookBg from "@/public/macbook-bg.jpg";
 import terminalIcon from "@/public/terminal-icon.png";
 
@@ -47,32 +49,38 @@ export default function RootLayout({ children }) {
         }}
         onClick={() => onClickDesktop()}
       >
-        <div className="w-screen h-full p-3 grid [grid-auto-flow:column] [grid-template-rows:repeat(auto-fill,minmax(90px,1fr))] justify-end gap-3">
-          {DESKTOP_ICON.map((item) => (
-            <button
-              key={`item-${item.name}-desktop`}
-              onClick={(event) => {
-                event.stopPropagation();
-                onClickItem(item.path);
-              }}
-            >
-              <Image
-                src={item.icon}
-                className={`w-[80px] h-[80px] ${
-                  activeItem === item.path
-                    ? "border bg-black/40 rounded-md border-[#efefef]/70"
-                    : "border border-transparent"
-                }`}
-              />
-              <p
-                className={`mt-1 font-semibold text-sm text-white text- ${
-                  activeItem === item.path ? "bg-[#2556CA] rounded-md" : ""
-                }`}
+        <div className="grid grid-cols-[1fr_auto] w-screen">
+          <div className="w-full h-full p-3 grid auto-rows-[90px] grid-cols-[repeat(auto-fill,minmax(90px,1fr))] gap-2">
+            <WeatherWidget />
+          </div>
+
+          <div className="w-full h-full p-3 grid [grid-auto-flow:column] [grid-template-rows:repeat(auto-fill,minmax(90px,1fr))] justify-end gap-3">
+            {DESKTOP_ICON.map((item) => (
+              <button
+                key={`item-${item.name}-desktop`}
+                onClick={(event) => {
+                  event.stopPropagation();
+                  onClickItem(item.path);
+                }}
               >
-                Terminal
-              </p>
-            </button>
-          ))}
+                <Image
+                  src={item.icon}
+                  className={`w-[80px] h-[80px] ${
+                    activeItem === item.path
+                      ? "border bg-black/40 rounded-md border-[#efefef]/70"
+                      : "border border-transparent"
+                  }`}
+                />
+                <p
+                  className={`mt-1 font-semibold text-sm text-white text- ${
+                    activeItem === item.path ? "bg-[#2556CA] rounded-md" : ""
+                  }`}
+                >
+                  Terminal
+                </p>
+              </button>
+            ))}
+          </div>
         </div>
         <div className="bg-white/10 backdrop-blur-xl rounded-2xl mb-2 pt-1 px-1 border border-[#efefef]/30">
           {DOCK_ICON.map((item) => (

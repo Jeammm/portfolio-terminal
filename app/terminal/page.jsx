@@ -6,7 +6,7 @@ import Prefix from "@/components/Prefix";
 import HistoryPrefix from "@/components/HistoryPrefix";
 
 import Pallet, { cmdPallet } from "@/commands/Pallet";
-import Window from "../window";
+import Window from "../../components/wrapper/window";
 
 export default function Home() {
   const [cmdHistory, setCmdHistory] = useState([]);
