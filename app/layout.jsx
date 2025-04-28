@@ -15,10 +15,7 @@ const DESKTOP_ICON = [
   { name: "Terminal", icon: terminalIcon, path: "terminal" },
 ];
 
-const DOCK_ICON = [
-  { name: "Terminal", icon: terminalIcon, path: "terminal" },
-  { name: "Terminal", icon: terminalIcon, path: "terminal" },
-];
+const DOCK_ICON = [{ name: "Terminal", icon: terminalIcon, path: "terminal" }];
 
 export default function RootLayout({ children }) {
   const router = useRouter();
@@ -53,6 +50,7 @@ export default function RootLayout({ children }) {
         <div className="w-screen h-full p-3 grid [grid-auto-flow:column] [grid-template-rows:repeat(auto-fill,minmax(90px,1fr))] justify-end gap-3">
           {DESKTOP_ICON.map((item) => (
             <button
+              key={`item-${item.name}-desktop`}
               onClick={(event) => {
                 event.stopPropagation();
                 onClickItem(item.path);
@@ -79,6 +77,7 @@ export default function RootLayout({ children }) {
         <div className="bg-white/10 backdrop-blur-xl rounded-2xl mb-2 pt-1 px-1 border border-[#efefef]/30">
           {DOCK_ICON.map((item) => (
             <button
+              key={`item-${item.name}-dock`}
               onClick={(event) => {
                 event.stopPropagation();
                 router.push(item.path);
