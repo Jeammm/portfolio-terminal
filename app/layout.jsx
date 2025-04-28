@@ -39,6 +39,9 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en" className={`${inter.className}`}>
+      <head>
+        <title>🖥️ TERMINAL</title>
+      </head>
       <body
         className="grid grid-rows-[1fr_auto] justify-items-center h-screen bg-black overflow-hidden"
         style={{
