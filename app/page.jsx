@@ -86,7 +86,7 @@ export default function Home() {
   };
 
   useEffect(() => {
-    document.getElementById("bottom").scrollIntoView();
+    document.getElementById("bottom")?.scrollIntoView({ behavior: "smooth" });
   }, [cmdHistory, autoComplete]);
 
   useEffect(() => {

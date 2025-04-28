@@ -1,4 +1,6 @@
-const cd = (argument, folders) => {
+import folders from "../foldersList";
+
+const cd = (argument) => {
   if (argument.length) {
     if (!folders.includes(argument[0])) {
       return <p>cd: {argument.join(" ")}: No such file or directory</p>;
@@ -8,4 +10,4 @@ const cd = (argument, folders) => {
   return;
 };
 
-export default cd
+export default cd;

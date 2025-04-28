@@ -1,5 +1,15 @@
 const projects = [
   {
+    projectName: "Archery Tracker",
+    url: "https://www.archery-tracker.online/",
+    desc: "A web app for archery athletes to record posture, track progress, analyze performance, and visualize results.",
+  },
+  {
+    projectName: "ZideQuest",
+    url: "https://github.com/ZideQuest",
+    desc: "A mobile app for students to find activities, track hours, and showcase participation, making campus engagement easy and rewarding.",
+  },
+  {
     projectName: "Cord This",
     url: "https://github.com/Jeammm/cord-this",
     desc: "Real-time chat application with socket.io.",
@@ -16,13 +26,8 @@ const projects = [
   },
   {
     projectName: "Prompt Mai",
-    url: "https://github.com/Jeammm/prompt-mai",
+    url: "https://prompt-mai.vercel.app/",
     desc: "PromptMai is an platform for discover and sharing creative AI prompt.",
-  },
-  {
-    projectName: "Bitkub Clone",
-    url: "https://github.com/Jeammm/Bitkub-clone",
-    desc: "Cloning of Bitkub website.",
   },
 ];
 
