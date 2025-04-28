@@ -1,12 +1,23 @@
+import { cn } from "@/utils/cn";
 import React from "react";
 
-const widget = ({ children, col = 1, row = 1, className = "" }) => {
+const widget = ({
+  children,
+  col = 1,
+  row = 1,
+  colStart,
+  rowStart,
+  className = "",
+}) => {
   return (
     <div
-      className={`backdrop-blur-xl bg-gray-500/30 p-2 rounded-lg ${className}`}
+      className={cn([
+        "backdrop-blur-xl bg-gray-500/30 rounded-2xl overflow-hidden",
+        className,
+      ])}
       style={{
-        gridColumn: `span ${col}`,
-        gridRow: `span ${row}`,
+        gridColumn: `${colStart ? `${colStart} / span ${col}` : `span ${col}`}`,
+        gridRow: `${rowStart ? `${rowStart} / span ${row}` : `span ${row}`}`,
       }}
     >
       {children}

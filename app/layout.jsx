@@ -7,6 +7,8 @@ import { useState } from "react";
 import Image from "next/image";
 
 import WeatherWidget from "@/components/widget/weatherWidget";
+import PictureWidget from "@/components/widget/pictureWidget";
+import NoteWidget from "@/components/widget/noteWidget";
 
 import macbookBg from "@/public/macbook-bg.jpg";
 import terminalIcon from "@/public/terminal-icon.png";
@@ -57,8 +59,10 @@ export default function RootLayout({ children }) {
         onClick={() => onClickDesktop()}
       >
         <div className="grid grid-cols-[1fr_auto] w-screen">
-          <div className="w-full h-full p-3 grid auto-rows-[90px] grid-cols-[repeat(auto-fill,minmax(90px,1fr))] gap-2">
+          <div className="w-full h-full p-3 grid auto-rows-[90px] grid-cols-[repeat(auto-fill,minmax(90px,1fr))] gap-3.5">
             <WeatherWidget />
+            <PictureWidget />
+            <NoteWidget />
           </div>
 
           <div className="w-full h-full p-3 grid [grid-auto-flow:column] [grid-template-rows:repeat(auto-fill,minmax(90px,1fr))] justify-end gap-3">
