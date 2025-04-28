@@ -15,6 +15,9 @@ import terminalIcon from "@/public/terminal-icon.png";
 import trashIcon from "@/public/trash-icon.png";
 import dockerIcon from "@/public/docker-icon.png";
 
+import me from "@/public/me.jpg";
+import cat from "@/public/cat.jpg";
+
 const inter = Inter({ subsets: ["latin"] });
 
 const DESKTOP_ICON = [
@@ -26,6 +29,29 @@ const DOCK_ICON = [
   { name: "Docker", icon: dockerIcon, path: "docker" },
   { name: "Separator", icon: "", path: "" },
   { name: "Trash", icon: trashIcon, path: "trash" },
+];
+
+const noteItems = [
+  {
+    title: "Athicha Phaepaijitkul",
+    description:
+      "Passionate Software Engineer specializing in full-stack web and mobile development",
+  },
+  {
+    title: "About Me",
+    description:
+      "First-Class Honors graduate with a strong focus on building high-performance web applications",
+  },
+  {
+    title: "Work Experience",
+    description:
+      "Frontend and Fullstack Developer at Innovative Extremist, Kitcharern Rungroeng LP, and Naruthee Consulting",
+  },
+  {
+    title: "Technical Skills",
+    description:
+      "Proficient in React, Next.js, Node.js, TypeScript, MongoDB, Docker, Python, and modern web development practices",
+  },
 ];
 
 export default function RootLayout({ children }) {
@@ -61,8 +87,15 @@ export default function RootLayout({ children }) {
         <div className="grid grid-cols-[1fr_auto] w-screen">
           <div className="w-full h-full p-3 grid auto-rows-[90px] grid-cols-[repeat(auto-fill,minmax(90px,1fr))] gap-3.5">
             <WeatherWidget />
-            <PictureWidget />
-            <NoteWidget />
+            <PictureWidget
+              col={2}
+              row={2}
+              colStart={5}
+              rowStart={1}
+              imgSrc={cat}
+            />
+            <PictureWidget imgSrc={me} />
+            <NoteWidget notes={noteItems} />
           </div>
 
           <div className="w-full h-full p-3 grid [grid-auto-flow:column] [grid-template-rows:repeat(auto-fill,minmax(90px,1fr))] justify-end gap-3">

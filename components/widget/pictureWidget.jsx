@@ -1,12 +1,11 @@
 import React from "react";
 import Widget from "../wrapper/widget";
 import Image from "next/image";
-import me from "@/public/me.jpg";
 
-const pictureWidget = () => {
+const pictureWidget = ({ col = 2, row = 3, colStart = 0, rowStart = 3, imgSrc }) => {
   return (
-    <Widget col={2} row={3} colStart={0} rowStart={3}>
-      <Image src={me} className="w-full h-full object-cover" />
+    <Widget col={col} row={row} colStart={colStart} rowStart={rowStart}>
+      <Image src={imgSrc} className="w-full h-full object-cover" />
     </Widget>
   );
 };
