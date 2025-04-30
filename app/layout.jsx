@@ -162,7 +162,7 @@ export default function RootLayout({ children }) {
         onClick={() => onClickDesktop()}
       >
         <div className="flex w-screen">
-          <div className="w-full h-full p-3 grid auto-rows-[90px] grid-cols-[repeat(auto-fill,minmax(90px,1fr))] gap-3.5">
+          <div className="w-full h-full p-3 grid auto-rows-[85px] grid-cols-[repeat(auto-fill,minmax(85px,1fr))] gap-3.5">
             <WeatherWidget />
             <PictureWidget
               col={2}
@@ -176,7 +176,7 @@ export default function RootLayout({ children }) {
             <StickerWidget notes={noteItems} />
           </div>
 
-          <div className="flex-1 w-full h-full p-3 grid [grid-auto-flow:column] [grid-template-rows:repeat(auto-fill,minmax(90px,1fr))] justify-end gap-4">
+          <div className="flex-1 w-full h-full p-3 grid [grid-auto-flow:column] [grid-template-rows:repeat(auto-fill,minmax(85px,1fr))] justify-end gap-4">
             {DESKTOP_ICON.map((item) => (
               <button
                 key={`item-${item.name}-desktop`}

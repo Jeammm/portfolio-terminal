@@ -2,6 +2,7 @@ import React from "react";
 import Widget from "../wrapper/widget";
 import { usePathname } from "next/navigation";
 import { cn } from "@/utils/cn";
+import { FolderClosed } from "lucide-react";
 
 const noteWidget = ({
   col = 4,
@@ -23,7 +24,10 @@ const noteWidget = ({
               : "bg-white/30 backdrop-blur-2xl",
           ])}
         >
-          <p className="text-lg">📝 Notes</p>
+          <div className="flex items-center gap-3">
+            <FolderClosed strokeWidth={1.5}/>
+            <p className="text-lg">Notes</p>
+          </div>
         </div>
         <div
           className={cn([
