@@ -10,6 +10,11 @@ const projects = [
     desc: "A mobile app for students to find activities, track hours, and showcase participation, making campus engagement easy and rewarding.",
   },
   {
+    projectName: "Goodo",
+    url: "https://goodo-angular.vercel.app",
+    desc: "Goodo — กู do it all. A to-do web app built with Angular. Design inspo from Proud (SKE).",
+  },
+  {
     projectName: "Cord This",
     url: "https://github.com/Jeammm/cord-this",
     desc: "Real-time chat application with socket.io.",
