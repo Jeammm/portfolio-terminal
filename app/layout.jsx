@@ -16,6 +16,9 @@ import terminalIcon from "@/public/terminal-icon.png";
 import trashIcon from "@/public/trash-icon.png";
 import dockerIcon from "@/public/docker-icon.png";
 import photoboothIcon from "@/public/photobooth-icon.png";
+import githubIcon from "@/public/github-icon.png";
+import goodooIcon from "@/public/goodoo-icon.png";
+import archeryTrackerIcon from "@/public/archerytracker-icon.png";
 
 import me from "@/public/ME.JPG";
 import cat from "@/public/cat.JPG";
@@ -23,16 +26,62 @@ import cat from "@/public/cat.JPG";
 const inter = Inter({ subsets: ["latin"] });
 
 const DESKTOP_ICON = [
-  { name: "Terminal", icon: terminalIcon, path: "terminal" },
-  { name: "Photo Booth", icon: photoboothIcon, path: "photobooth" },
+  { name: "Terminal", icon: terminalIcon, path: "terminal", external: false },
+  {
+    name: "Photo Booth",
+    icon: photoboothIcon,
+    path: "photobooth",
+    external: false,
+  },
+  {
+    name: "Github",
+    icon: githubIcon,
+    path: "https://github.com/Jeammm",
+    external: true,
+  },
+  {
+    name: "Goodoo",
+    icon: goodooIcon,
+    path: "https://goodo-angular.vercel.app",
+    external: true,
+  },
+  {
+    name: "Archery Tracker",
+    icon: archeryTrackerIcon,
+    path: "https://www.archery-tracker.online/",
+    external: true,
+  },
 ];
 
 const DOCK_ICON = [
-  { name: "Terminal", icon: terminalIcon, path: "terminal" },
-  { name: "Docker", icon: dockerIcon, path: "docker" },
-  { name: "Photo Booth", icon: photoboothIcon, path: "photobooth" },
+  { name: "Terminal", icon: terminalIcon, path: "terminal", external: false },
+  { name: "Docker", icon: dockerIcon, path: "docker", external: false },
+  {
+    name: "Photo Booth",
+    icon: photoboothIcon,
+    path: "photobooth",
+    external: false,
+  },
+  {
+    name: "Github",
+    icon: githubIcon,
+    path: "https://github.com/Jeammm",
+    external: true,
+  },
+  {
+    name: "Goodoo",
+    icon: goodooIcon,
+    path: "https://goodo-angular.vercel.app",
+    external: true,
+  },
+  {
+    name: "Archery Tracker",
+    icon: archeryTrackerIcon,
+    path: "https://www.archery-tracker.online/",
+    external: true,
+  },
   { name: "Separator", icon: "", path: "" },
-  { name: "Trash", icon: trashIcon, path: "trash" },
+  { name: "Trash", icon: trashIcon, path: "trash", external: false },
 ];
 
 const noteItems = [
@@ -66,12 +115,32 @@ export default function RootLayout({ children }) {
   const router = useRouter();
   const [activeItem, setActiveItem] = useState(null);
 
-  const onClickItem = (item) => {
-    if (activeItem === item) {
-      router.push(`${item}`);
+  const openExternalLink = (path) => {
+    const width = 800;
+    const height = 600;
+
+    // Calculate center position
+    const left = window.screenX + (window.outerWidth - width) / 2;
+    const top = window.screenY + (window.outerHeight - height) / 2;
+    window.open(
+      path,
+      "_blank",
+      `width=${width},height=${height},left=${left},top=${top},resizable,scrollbars`
+    );
+  };
+
+  const onClickItem = (path, external) => {
+    if (activeItem === path) {
+      if (external) {
+        router.push("/desktop");
+        openExternalLink(path);
+      } else {
+        router.push(`${path}`);
+      }
+
       setActiveItem(null);
     } else {
-      setActiveItem(item);
+      setActiveItem(path);
     }
   };
 
@@ -92,7 +161,7 @@ export default function RootLayout({ children }) {
         }}
         onClick={() => onClickDesktop()}
       >
-        <div className="grid grid-cols-[1fr_auto] w-screen">
+        <div className="flex w-screen">
           <div className="w-full h-full p-3 grid auto-rows-[90px] grid-cols-[repeat(auto-fill,minmax(90px,1fr))] gap-3.5">
             <WeatherWidget />
             <PictureWidget
@@ -107,18 +176,19 @@ export default function RootLayout({ children }) {
             <StickerWidget notes={noteItems} />
           </div>
 
-          <div className="w-full h-full p-3 grid [grid-auto-flow:column] [grid-template-rows:repeat(auto-fill,minmax(90px,1fr))] justify-end gap-3">
+          <div className="flex-1 w-full h-full p-3 grid [grid-auto-flow:column] [grid-template-rows:repeat(auto-fill,minmax(90px,1fr))] justify-end gap-4">
             {DESKTOP_ICON.map((item) => (
               <button
                 key={`item-${item.name}-desktop`}
                 onClick={(event) => {
                   event.stopPropagation();
-                  onClickItem(item.path);
+                  onClickItem(item.path, item.external);
                 }}
+                className="flex flex-col items-center justify-center"
               >
                 <Image
                   src={item.icon}
-                  className={`w-[80px] h-[80px] ${
+                  className={`w-[80px] h-[80px] object-contain ${
                     activeItem === item.path
                       ? "border bg-black/40 rounded-md border-[#efefef]/70"
                       : "border border-transparent"
@@ -126,7 +196,7 @@ export default function RootLayout({ children }) {
                   alt={item.name}
                 />
                 <p
-                  className={`mt-1 font-semibold text-sm text-white text- ${
+                  className={`break-all mt-1 font-semibold text-xs text-white text- ${
                     activeItem === item.path ? "bg-[#2556CA] rounded-md" : ""
                   }`}
                 >
@@ -151,7 +221,12 @@ export default function RootLayout({ children }) {
                 key={`item-${item.name}-dock`}
                 onClick={(event) => {
                   event.stopPropagation();
-                  router.push(item.path);
+                  if (item.external) {
+                    router.push("desktop");
+                    openExternalLink(item.path);
+                  } else {
+                    router.push(item.path);
+                  }
                 }}
                 className="hover:scale-110 transition-all hover:-translate-y-2"
               >
