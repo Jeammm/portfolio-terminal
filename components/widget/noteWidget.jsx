@@ -17,7 +17,7 @@ const noteWidget = ({
       <div className={cn(["w-full h-full grid grid-rows-[auto_1fr]"])}>
         <div
           className={cn([
-            "w-full p-3 transition-colors duration-200 ease-in-out",
+            "w-full py-2 px-3 transition-colors duration-200 ease-in-out",
             pathname === "/desktop"
               ? "bg-[rgb(245,202,68)]"
               : "bg-white/30 backdrop-blur-2xl",
@@ -27,7 +27,7 @@ const noteWidget = ({
         </div>
         <div
           className={cn([
-            "w-full h-full grid transition-colors duration-200 ease-in-out",
+            "grid grid-rows-5 w-full h-full transition-colors duration-200 ease-in-out pt-2",
             pathname === "/desktop"
               ? "bg-[rgb(30,30,30)]"
               : "bg-black/10 backdrop-blur-2xl",
@@ -50,9 +50,9 @@ export default noteWidget;
 
 const NoteItem = ({ title, description }) => {
   return (
-    <div className="w-full border-t border-gray-500/30 p-2">
-      <p className="text-sm font-semibold mb-1">{title}</p>
-      <p className="text-sm text-white/60">{description}</p>
+    <div className="w-full border-t border-gray-500/30 px-2 pt-1">
+      <p className="text-xs font-semibold mb-1">{title}</p>
+      <p className="text-xs text-white/60">{description}</p>
     </div>
   );
 };

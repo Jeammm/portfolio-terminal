@@ -9,6 +9,7 @@ import Image from "next/image";
 import WeatherWidget from "@/components/widget/weatherWidget";
 import PictureWidget from "@/components/widget/pictureWidget";
 import NoteWidget from "@/components/widget/noteWidget";
+import StickerWidget from "@/components/widget/stickerWidget";
 
 import macbookBg from "@/public/macbook-bg.jpg";
 import terminalIcon from "@/public/terminal-icon.png";
@@ -55,6 +56,10 @@ const noteItems = [
     description:
       "Proficient in React, Next.js, Node.js, TypeScript, MongoDB, Docker, Python, and modern web development practices",
   },
+  {
+    title: "Contact Information",
+    description: "Email: athicha.phjkl@gmail.com | Phone: (+66) 90 923 7174",
+  },
 ];
 
 export default function RootLayout({ children }) {
@@ -99,6 +104,7 @@ export default function RootLayout({ children }) {
             />
             <PictureWidget imgSrc={me} />
             <NoteWidget notes={noteItems} />
+            <StickerWidget notes={noteItems} />
           </div>
 
           <div className="w-full h-full p-3 grid [grid-auto-flow:column] [grid-template-rows:repeat(auto-fill,minmax(90px,1fr))] justify-end gap-3">
