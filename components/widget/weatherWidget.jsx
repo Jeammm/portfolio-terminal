@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Widget from "../wrapper/widget";
 import WeatherResponse from "@/types/WeatherResponse";
+import { usePathname } from "next/navigation";
+import { cn } from "@/utils/cn";
 
 const weatherWidget = () => {
   const [weatherData, setWeatherData] = useState(new WeatherResponse());
+  const pathname = usePathname();
 
   useEffect(() => {
     const fetchWeatherData = async (lat, lon) => {
@@ -45,8 +48,19 @@ const weatherWidget = () => {
     }
   }, []);
 
+  console.log(pathname);
+
   return (
-    <Widget col={4} row={2} className="px-4 py-3">
+    <Widget
+      col={4}
+      row={2}
+      className={cn([
+        "px-4 py-3 transition-all ease-in-out duration-300",
+        pathname !== "/desktop"
+          ? "filter grayscale transition-filter"
+          : "bg-gradient-to-b from-[#000010] to-[#2e3b57]",
+      ])}
+    >
       <div className="flex justify-between">
         <div>
           <div className="flex gap-1">
@@ -84,7 +98,9 @@ const SmallHourForecast = ({ data }) => {
   return (
     <div className="text-center">
       <p className="text-sm text-white/60">{formatHour(data.dt)}</p>
-      <p className="text-xl my-0.5">{getWeatherIcon(data.weather?.[0]?.main)}</p>
+      <p className="text-xl my-0.5">
+        {getWeatherIcon(data.weather?.[0]?.main)}
+      </p>
       <p className="text-sm">{kelvinToCelsius(data.main.temp)}°</p>
     </div>
   );

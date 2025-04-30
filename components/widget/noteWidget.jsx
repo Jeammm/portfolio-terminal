@@ -1,5 +1,7 @@
 import React from "react";
 import Widget from "../wrapper/widget";
+import { usePathname } from "next/navigation";
+import { cn } from "@/utils/cn";
 
 const noteWidget = ({
   col = 4,
@@ -8,13 +10,29 @@ const noteWidget = ({
   rowStart = 3,
   notes = [],
 }) => {
+  const pathname = usePathname();
+
   return (
     <Widget col={col} row={row} colStart={colStart} rowStart={rowStart}>
-      <div className="bg-[rgb(30,30,30)] w-full h-full grid grid-rows-[auto_1fr]">
-        <div className="w-full bg-[rgb(245,202,68)] p-3">
+      <div className={cn(["w-full h-full grid grid-rows-[auto_1fr]"])}>
+        <div
+          className={cn([
+            "w-full p-3 transition-colors duration-200 ease-in-out",
+            pathname === "/desktop"
+              ? "bg-[rgb(245,202,68)]"
+              : "bg-white/30 backdrop-blur-2xl",
+          ])}
+        >
           <p className="text-lg">📝 Notes</p>
         </div>
-        <div className="w-full h-full grid">
+        <div
+          className={cn([
+            "w-full h-full grid transition-colors duration-200 ease-in-out",
+            pathname === "/desktop"
+              ? "bg-[rgb(30,30,30)]"
+              : "bg-black/10 backdrop-blur-2xl",
+          ])}
+        >
           {notes.map((note, index) => (
             <NoteItem
               key={index}
