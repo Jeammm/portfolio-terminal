@@ -77,7 +77,7 @@ const DOCK_ICON = [
   {
     name: "Archery Tracker",
     icon: archeryTrackerIcon,
-    path: "https://www.archery-tracker.online/",
+    path: "https://archery.jeammm.com/",
     external: true,
   },
   { name: "Separator", icon: "", path: "" },
