@@ -1,7 +1,7 @@
 const projects = [
   {
     projectName: "Archery Tracker",
-    url: "https://www.archery-tracker.online/",
+    url: "https://archery.jeammm.com/",
     desc: "A web app for archery athletes to record posture, track progress, analyze performance, and visualize results.",
   },
   {
